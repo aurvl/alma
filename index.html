@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection...</title>
+    <script>
+        // JavaScript pour rediriger vers l'un des deux Google Forms de manière aléatoire
+        // Liens vers tes deux Google Forms
+        const urlA = "https://docs.google.com/forms/d/e/1FAIpQLSdxRzXD5ErkpRIdRlyYOx-6c6WL9WA8tZGqnUBuophPSSHXBg/viewform?usp=header";
+        const urlB = "https://docs.google.com/forms/d/e/1FAIpQLSejuCOIczsFYFeeff_tom27YTzcrY4784XI_bOu_xUqdeK_FA/viewform?usp=header";
+        
+        // Utilise le stockage local pour alterner entre A et B
+        let counter = localStorage.getItem('redirectCounter');
+        counter = counter ? parseInt(counter, 10) : 0;
+        const target = counter % 2 === 0 ? urlA : urlB;
+        localStorage.setItem('redirectCounter', counter + 1);
+        window.location.href = target;
+    </script>
+</head>
+<body>
+</body>
+</html>
